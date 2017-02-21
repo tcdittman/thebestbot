@@ -3,6 +3,17 @@ module.exports = function(robot) {
      return res.send("buzz");
    });
 
+  robot.hear(/what up?/, function(res) {
+        return res.send("not much. just chillin");
+   });
+
+   robot.respond(/you are my best/, function(res) {
+        return res.emote("v");
+      });
+
+
+};
+/*
    robot.respond(/you are my best (.*)/i, function(res) {
      var relation;
      relation = res.match[1];
@@ -24,3 +35,4 @@ module.exports = function(robot) {
    });
 
 };
+*/
