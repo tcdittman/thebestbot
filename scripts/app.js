@@ -1,8 +1,4 @@
 module.exports = function(robot) {
-  robot.hear(/fizz/, function(res) {
-     return res.send("buzz");
-   });
-
   robot.hear(/what up/, function(res) {
         return res.send("not much. just chillin");
    });
@@ -49,8 +45,8 @@ module.exports = function(robot) {
       robot.respond(/count to (.*)/i, function(msg) {
           var top;
           var top = parseInt(msg.match[1]);
-          for (let i = 1; i < 9; i++){
-            return msg.reply(i);
+          for (let count = 1; count <= top; count++){
+            return msg.reply(count);
             }
           });
 
