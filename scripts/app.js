@@ -8,11 +8,11 @@ module.exports = function(robot) {
    });
 
    robot.respond(/peace/, function(res) {
-        return res.send(v);
+        return res.send(:v:);
       });
 
 
-   robot.respond(/you're my best (.*)/, function(msg) {
+   robot.respond(/you're my best (.*)/i, function(msg) {
       var relation;
       relation = msg.match[1];
       if (relation === "friend") {
@@ -25,27 +25,9 @@ module.exports = function(robot) {
     });
 
 
+
 };
+
 /*
-   robot.respond(/you are my best (.*)/i, function(res) {
-     var relation;
-     relation = res.match[1];
-     if (relation === "friend") {
-       return res.emote(happy);
-     } else if (relation === "enemy") {
-       return res.emote(sad);
-     } else {
-       return res.emote(blank);
-     }
-   });
-
-
-   var lulz;
-   lulz = ['lol', 'rofl', 'lmao'];
-
-   return robot.respond(/lulz/i, function(res) {
-     return res.send(res.random(lulz));
-   });
-
-};
+do someting with an array, conditional, for loop
 */
