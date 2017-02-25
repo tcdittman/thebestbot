@@ -7,22 +7,44 @@ module.exports = function(robot) {
         return res.send("not much. just chillin");
    });
 
-   robot.respond(/peace/, function(res) {
-        return res.send(:v:);
-      });
-
-
-   robot.respond(/you're my best (.*)/i, function(msg) {
+  robot.respond(/you're my best (.*)/i, function(msg) {
       var relation;
       relation = msg.match[1];
       if (relation === "friend") {
           return msg.reply("Yay for friendship!");
         } else if (relation === "enemy") {
-          return msg.reply("that's not nice");
+          return msg.reply("I'm sorry you feel that way.");
         } else {
-          return msg.reply("I don't understand. It's tough to be a robot :grimacing:");
+          return msg.reply("I don't understand. It's tough to be a robot :|");
         }
     });
+
+    robot.hear(/8ball/, function(res) {
+        var answers = ["It is certain",
+        "It is decidedly so",
+        "Without a doubt",
+        "Yes, definitely",
+        "You may rely on it",
+        "As I see it, yes",
+        "Most likely",
+        "Outlook good",
+        "Yes",
+        "Signs point to yes",
+        "Reply hazy try again",
+        "Ask again later",
+        "Better not tell you now",
+        "Cannot predict now",
+        "Concentrate and ask again",
+        "Don't count on it",
+        "My reply is no",
+        "My sources say no",
+        "Outlook not so good",
+        "Very doubtful"
+        ];
+        var i = Math.floor(Math.random()*answers.length)
+        return res.send(answers[i]);
+      });
+
 
 
 
